@@ -1,0 +1,69 @@
+package address.model;
+
+import java.util.List;
+import javafx.beans.property.IntegerProperty;
+
+/**
+ *
+ * Modelo de funcionamiento de la aplicación. Implementa los métodos de las
+ * distintas funciones que realiza la aplicación.
+ *
+ * @author David Delgado
+ */
+
+public class AgendaModelo {
+
+	private final AgendaDAOJDBC daojdbc;
+	private int lastId;
+	private IntegerProperty people_inserted;
+
+	public int getLastId() {
+		return lastId;
+	}
+
+	/**
+	 *
+	 * Constructor del modelo. Inicializa un objeto del tipo AgendaDAOJDBC, a través
+	 * del cual se realiza el acceso a los datos.
+	 *
+	 */
+	public AgendaModelo() {
+		this.daojdbc = new AgendaDAOJDBC();
+	}
+
+	/**
+	 * @return una colección de datos de tipo List, que contiene las personas.
+	 * @throws AgendaException
+	 */
+	public List<AgendaVO> cargarListaPersona() throws AgendaException {
+
+		return daojdbc.cargarListaPersona();
+	}
+
+	/**
+	 * Método que guarda una persona
+	 * 
+	 * @throws AgendaException
+	 */
+
+	public void guardarPersona(List<AgendaVO> pl) throws AgendaException {
+		this.lastId++;
+		pl.get(0).setId(lastId);
+		daojdbc.guardarPersona(pl);
+		this.people_inserted.set(people_inserted.get() + 1);
+	}
+
+	public void actualizarPersona(List<AgendaVO> pl) throws AgendaException {
+		daojdbc.actualizarPersona(pl);
+		this.people_inserted.set(people_inserted.get() + 1);
+	}
+
+	public void eliminarPersona(List<AgendaVO> pl) throws AgendaException {
+		daojdbc.eliminarPersona(pl);
+		this.people_inserted.set(people_inserted.get() - 1);
+	}
+
+	public IntegerProperty getPeople_inserted() {
+		return people_inserted;
+	}
+}

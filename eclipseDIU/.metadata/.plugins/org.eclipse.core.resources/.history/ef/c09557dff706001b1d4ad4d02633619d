@@ -1,0 +1,70 @@
+package application;
+
+import java.awt.Label;
+
+import javafx.application.Application;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.layout.Pane;
+
+public class Main extends Application {
+	private Button btnPulsar;
+	private Label porcentaje;
+	private ProgressBar barProg;
+	private IntegerProperty contLocal = new SimpleIntegerProperty(0);
+	private IntegerProperty contGeneral = new SimpleIntegerProperty(0);
+
+	private void muestraValor(Number valor) {
+		porcentaje.setText(formateNumero(valor));
+		barProg.setProgress(valor.doubleValue() / 100);
+	}
+
+	private String formateNumero(Number valor) {
+		String valorTexto = valor.toString();
+		String parteEntera = valorTexto.split("\\.")[0];
+
+		valorTexto = parteEntera;
+
+		return valorTexto;
+	}
+
+	public void abrir(ActionEvent event) throws Exception {
+		try {
+			FXMLLoader ventana = new FXMLLoader(getClass().getResource("Vista.fxml"));
+			
+			Pane raiz1 = (Pane) ventana.load();
+			Stage stage = new Stage();
+			stage.setScene(new Scene(raiz1));
+			stage.setTitle("Actividad %");
+			stage.show();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void start(Stage escenarioPrincipal) throws Exception {
+		try {
+			Pane raiz = (Pane) FXMLLoader.load(getClass().getResource("Vista.fxml"));
+
+			Scene escena = new Scene(raiz);
+			escenarioPrincipal.setScene(escena);
+			escenarioPrincipal.setTitle("Actividad %");
+			escenarioPrincipal.show();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
+}

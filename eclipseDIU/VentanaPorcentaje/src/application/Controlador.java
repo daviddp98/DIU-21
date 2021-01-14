@@ -1,0 +1,97 @@
+package application;
+
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.ProgressIndicator;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+
+public class Controlador {
+
+	@FXML
+	public Button btnPulsar = new Button();
+	@FXML
+	public ProgressBar barProg = new ProgressBar();
+	@FXML
+	public ProgressIndicator indProg = new ProgressIndicator();
+
+	private DoubleProperty contLocal;
+
+	public DoubleProperty getContLocal() {
+		return contLocal;
+	}
+
+	public void setContLocal(DoubleProperty contGeneral) {
+		this.contLocal = contGeneral;
+		barProg.setProgress(contLocal.get());
+		indProg.setProgress(contLocal.get());
+
+		contLocal.addListener(new ChangeListener<Object>() {
+			@Override
+			public void changed(ObservableValue<?> observable, Object oldValue, Object newValue) {
+				// TODO Auto-generated method stub
+				barProg.setProgress(contLocal.get());
+				indProg.setProgress(contLocal.get());
+			}
+		});
+	}
+
+	public void abrir() {
+		try {
+			FXMLLoader raiz = new FXMLLoader();
+			raiz.setLocation(Main.class.getResource("Vista.fxml"));
+
+			Pane p = (Pane) raiz.load();
+
+			Controlador controlador = raiz.getController();
+			controlador.setContLocal(contLocal);
+
+			Stage stage = new Stage();
+			Scene scene = new Scene(p);
+			stage.setScene(scene);
+			stage.setTitle("Actividad %");
+			stage.show();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void aumentar() {
+		if (contLocal.get() < 1) {
+			contLocal.set(contLocal.get() + 0.1);
+			abrir();
+		}
+
+		if (contLocal.get() > 1) {
+			Stage stage = (Stage) btnPulsar.getScene().getWindow();
+			stage.close();
+		}
+	}
+
+	public void progreso() {
+		barProg.setProgress(contLocal.get());
+		indProg.setProgress(contLocal.get());
+	}
+
+	public void teclaEnter(KeyEvent e) {
+		if (contLocal.get() < 1) {
+			if (e.getCode() == KeyCode.ENTER) {
+				contLocal.set(contLocal.get() + 0.1);
+				abrir();
+			}
+		}
+		if (contLocal.get() > 1) {
+			Stage stage = (Stage) btnPulsar.getScene().getWindow();
+			stage.close();
+		}
+	}
+}

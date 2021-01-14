@@ -1,0 +1,40 @@
+package application;
+
+import java.awt.Label;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.layout.Pane;
+
+public class Main extends Application {
+	@Override
+	public void start(Stage escenarioPrincipal) {
+		try {
+			Pane raiz = (Pane) FXMLLoader.load(getClass().getResource("Vista.fxml"));
+
+			Button btnCerrar;
+			btnCerrar = new Button();
+			btnCerrar.setText("Pulsar");
+
+			int num = 0;
+			Label porcentaje = new Label(num + "%");
+			ProgressBar barProg = new ProgressBar(0);
+
+			Scene escena = new Scene(raiz);
+			escenarioPrincipal.setScene(escena);
+			escenarioPrincipal.setTitle("Actividad %");
+			escenarioPrincipal.show();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
+}

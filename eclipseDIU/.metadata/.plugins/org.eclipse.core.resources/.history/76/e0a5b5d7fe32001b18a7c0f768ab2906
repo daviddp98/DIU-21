@@ -1,0 +1,14 @@
+package application.modelo;
+
+import java.util.List;
+
+public interface ProductoDAO {
+
+	public List<Producto> cargarListaElementos() throws ExcepcionMoneda;
+
+	public void guardarElemento(Producto p) throws ExcepcionMoneda;
+	
+	public void modificarElemento(Producto p) throws ExcepcionMoneda;
+	
+	public void borrarElemento(Producto p) throws ExcepcionMoneda;
+}

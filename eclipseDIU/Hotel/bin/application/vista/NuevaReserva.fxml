@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="459.0" prefWidth="509.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controlador.ControladorNuevaReserva">
+   <children>
+      <Pane prefHeight="175.0" prefWidth="580.0">
+         <children>
+            <Label layoutX="14.0" layoutY="42.0" text="DNI" />
+                  <TextField fx:id="textdni" layoutX="44.0" layoutY="38.0" prefHeight="25.0" prefWidth="80.0" />
+            <Button fx:id="btndni" layoutX="126.0" layoutY="37.0" mnemonicParsing="false" onAction="#ExisteDNI" prefHeight="31.0" prefWidth="47.0" style="-fx-background-radius: 5em; -fx-graphic: Hotel FX - fase beta\images\icon.png;" text="Ver" />
+            <Label layoutX="180.0" layoutY="42.0" text="Nombre" />
+            <TextField fx:id="textnombre" layoutX="237.0" layoutY="38.0" prefHeight="25.0" prefWidth="240.0" />
+            <TextField fx:id="textapellido" layoutX="71.0" layoutY="74.0" prefHeight="25.0" prefWidth="406.0" />
+            <Label layoutX="13.0" layoutY="78.0" text="Apellido" />
+            <Label layoutX="260.0" layoutY="117.0" text="Localidad" />
+            <TextField fx:id="textlocalidad" layoutX="331.0" layoutY="112.0" prefHeight="25.0" prefWidth="170.0" />
+            <TextField fx:id="textdireccion" layoutX="84.0" layoutY="112.0" prefHeight="25.0" prefWidth="170.0" />
+            <Label layoutX="13.0" layoutY="117.0" text="Dirección" />
+            <Text layoutX="13.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DATOS CLIENTE" underline="true">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Text>
+            <Label layoutX="260.0" layoutY="151.0" text="Provincia" />
+            <TextField fx:id="textprovincia" layoutX="331.0" layoutY="146.0" prefHeight="31.0" prefWidth="170.0" />
+         </children></Pane>
+      <Pane layoutY="190.0" prefHeight="302.0" prefWidth="580.0">
+         <children>
+            <Text layoutX="14.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DATOS RESERVA" underline="true">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Label layoutX="14.0" layoutY="38.0" text="Fecha de entrada" />
+            <DatePicker fx:id="fechaentrada" layoutX="128.0" layoutY="34.0" prefWidth="125.0" />
+            <DatePicker fx:id="fechasalida" layoutX="363.0" layoutY="34.0" prefWidth="125.0" />
+            <Label layoutX="264.0" layoutY="38.0" text="Fecha de salida" />
+            <Label layoutX="14.0" layoutY="79.0" text="Nº de habitaciones" />
+            <ComboBox fx:id="tipohabitacion" layoutX="264.0" layoutY="75.0" prefHeight="25.0" prefWidth="210.0" promptText="Tipo de habitación" />
+                          <Pane layoutX="14.0" layoutY="114.0" prefHeight="83.0" prefWidth="138.0" style="-fx-background-color: #D8E3E6;">
+                     <children>
+                        <RadioButton fx:id="regpension" mnemonicParsing="false" text="Pensión completa">
+                           <padding>
+                              <Insets left="10.0" top="60.0" />
+                           </padding>
+                        </RadioButton>
+                        <RadioButton fx:id="regmedia" mnemonicParsing="false" text="Media pensión">
+                           <padding>
+                              <Insets left="10.0" top="40.0" />
+                           </padding>
+                        </RadioButton>
+                        <RadioButton fx:id="regdesayuno" mnemonicParsing="false" text="Desayuno">
+                           <padding>
+                              <Insets left="10.0" top="20.0" />
+                           </padding>
+                        </RadioButton>
+                        <Label text="Régimen: ">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                        </Label>
+                     </children>
+                  </Pane>
+            <Button layoutX="23.0" layoutY="208.0" mnemonicParsing="false" onAction="#Limpiar" text="Limpiar" />
+            <Button layoutX="287.0" layoutY="213.0" mnemonicParsing="false" onAction="#Aceptar" prefHeight="31.0" prefWidth="76.0" text="Aceptar" />
+            <Button layoutX="382.0" layoutY="213.0" mnemonicParsing="false" onAction="#Cancelar" prefHeight="21.0" prefWidth="87.0" text="Cancelar" />
+            <CheckBox fx:id="fumador" layoutX="395.0" layoutY="117.0" mnemonicParsing="false" onMouseClicked="#CheckFumador" text="Fumador" />
+            <Label fx:id="labeltabaco" layoutX="172.0" layoutY="147.0" text="Mensaje ley tabaco." />
+            <ComboBox fx:id="habitaciones" layoutX="152.0" layoutY="74.0" prefHeight="31.0" prefWidth="47.0" />
+         </children></Pane>
+      <Separator layoutY="170.0" prefHeight="21.0" prefWidth="580.0" />
+   </children>
+</AnchorPane>

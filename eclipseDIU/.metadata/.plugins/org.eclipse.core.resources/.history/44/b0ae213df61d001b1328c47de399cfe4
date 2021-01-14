@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:PapyrusJava="http://www.eclipse.org/papyrus/PapyrusJava/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_Oth3gB0xEeuoSP3REvyIYQ" name="address">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_OyIqsB0xEeuoSP3REvyIYQ">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_YfbPYB0xEeuoSP3REvyIYQ" name="Agenda">
+      <packagedElement xmi:type="uml:Package" xmi:id="_YhBK0B0xEeuoSP3REvyIYQ" name="address">
+        <packagedElement xmi:type="uml:Package" xmi:id="_YhCY8B0xEeuoSP3REvyIYQ" name="model"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_auSToB0xEeuoSP3REvyIYQ" name="java">
+      <packagedElement xmi:type="uml:Package" xmi:id="_auS6sB0xEeuoSP3REvyIYQ" name="java">
+        <packagedElement xmi:type="uml:Package" xmi:id="_auThwB0xEeuoSP3REvyIYQ" name="lang">
+          <packagedElement xmi:type="uml:Class" xmi:id="_auThwR0xEeuoSP3REvyIYQ" name="Exception"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_aud50B0xEeuoSP3REvyIYQ" name="String"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_daHnwB0xEeuoSP3REvyIYQ" name="time">
+          <packagedElement xmi:type="uml:Class" xmi:id="_daIO0B0xEeuoSP3REvyIYQ" name="LocalDate"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_eLNGcB0xEeuoSP3REvyIYQ" name="sql">
+          <packagedElement xmi:type="uml:Class" xmi:id="_eLNGcR0xEeuoSP3REvyIYQ" name="Connection"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_O3Rz8B0yEeuTQqbBDnX75g" name="io">
+          <packagedElement xmi:type="uml:Class" xmi:id="_O3SbAB0yEeuTQqbBDnX75g" name="File"/>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_crb80B0xEeuoSP3REvyIYQ" name="importedTypes">
+      <packagedElement xmi:type="uml:Package" xmi:id="_crcj4B0xEeuoSP3REvyIYQ" name="javafx">
+        <packagedElement xmi:type="uml:Package" xmi:id="_crdK8B0xEeuoSP3REvyIYQ" name="beans">
+          <packagedElement xmi:type="uml:Package" xmi:id="_crdyAB0xEeuoSP3REvyIYQ" name="property">
+            <packagedElement xmi:type="uml:Class" xmi:id="_creZEB0xEeuoSP3REvyIYQ" name="IntegerProperty"/>
+            <packagedElement xmi:type="uml:Class" xmi:id="_dZ168B0xEeuoSP3REvyIYQ" name="StringProperty"/>
+            <packagedElement xmi:type="uml:Class" xmi:id="_dZ_E4B0xEeuoSP3REvyIYQ" name="ObjectProperty"/>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_crj4oB0xEeuoSP3REvyIYQ" name="collections">
+          <packagedElement xmi:type="uml:Class" xmi:id="_crkfsB0xEeuoSP3REvyIYQ" name="ObservableList"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_O2fJwB0yEeuTQqbBDnX75g" name="application">
+          <packagedElement xmi:type="uml:Class" xmi:id="_O2fw0B0yEeuTQqbBDnX75g" name="Application"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_O2nFkB0yEeuTQqbBDnX75g" name="stage">
+          <packagedElement xmi:type="uml:Class" xmi:id="_O2nFkR0yEeuTQqbBDnX75g" name="Stage"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_O2slIB0yEeuTQqbBDnX75g" name="scene">
+          <packagedElement xmi:type="uml:Package" xmi:id="_O2tMMB0yEeuTQqbBDnX75g" name="layout">
+            <packagedElement xmi:type="uml:Class" xmi:id="_O2tzQB0yEeuTQqbBDnX75g" name="BorderPane"/>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_O3Hb4B0yEeuTQqbBDnX75g" name="address">
+        <packagedElement xmi:type="uml:Package" xmi:id="_O3Hb4R0yEeuTQqbBDnX75g" name="model">
+          <packagedElement xmi:type="uml:Class" xmi:id="_O3IC8B0yEeuTQqbBDnX75g" name="AgendaVO"/>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_O1_agB0yEeuTQqbBDnX75g" name="src">
+      <packagedElement xmi:type="uml:Package" xmi:id="_O2cGcB0yEeuTQqbBDnX75g" name="address">
+        <packagedElement xmi:type="uml:Class" xmi:id="_etL8sB0yEeuTQqbBDnX75g" name="MainApp" visibility="public">
+          <generalization xmi:type="uml:Generalization" xmi:id="_etNK0B0yEeuTQqbBDnX75g" general="_O2fw0B0yEeuTQqbBDnX75g"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_etOY8B0yEeuTQqbBDnX75g" name="primaryStage" visibility="private" type="_O2nFkR0yEeuTQqbBDnX75g" isUnique="false"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_etPnEB0yEeuTQqbBDnX75g" name="rootLayout" visibility="private" type="_O2tzQB0yEeuTQqbBDnX75g" isUnique="false"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_etQ1MB0yEeuTQqbBDnX75g" name="bdConnetionStatus" visibility="private" isUnique="false">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_etRcQB0yEeuTQqbBDnX75g" name="personData" visibility="private" type="_crkfsB0xEeuoSP3REvyIYQ" isUnique="false">
+            <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_etSqYB0yEeuTQqbBDnX75g" name="defaultValue">
+              <language>JAVA</language>
+              <body>FXCollections.observableArrayList()</body>
+            </defaultValue>
+          </ownedAttribute>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etVtsB0yEeuTQqbBDnX75g" name="MainApp" specification="_etSqYR0yEeuTQqbBDnX75g">
+            <language>JAVA</language>
+            <body>&#xD;
+</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etW70R0yEeuTQqbBDnX75g" name="getPersonData" specification="_etWUwB0yEeuTQqbBDnX75g">
+            <language>JAVA</language>
+            <body>&#xD;
+    return personData;&#xD;
+</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etZYEB0yEeuTQqbBDnX75g" name="start" specification="_etYJ8B0yEeuTQqbBDnX75g">
+            <language>JAVA</language>
+            <body>&#xD;
+    this.primaryStage = primaryStage;&#xD;
+    this.primaryStage.setTitle(&quot;AddressApp&quot;);&#xD;
+    this.primaryStage.getIcons().add(new Image(&quot;file:resources/images/iconfinder_users-groups_511933.png&quot;));&#xD;
+    initRootLayout();&#xD;
+    showPersonOverview();&#xD;
+</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etamMB0yEeuTQqbBDnX75g" name="initRootLayout" specification="_etZ_IB0yEeuTQqbBDnX75g">
+            <language>JAVA</language>
+            <body>&#xD;
+    try {&#xD;
+        // Load root layout from fxml file.&#xD;
+        FXMLLoader loader = new FXMLLoader();&#xD;
+        loader.setLocation(MainApp.class.getResource(&quot;view/RootLayout.fxml&quot;));&#xD;
+        rootLayout = (BorderPane) loader.load();&#xD;
+        // Show the scene containing the root layout.&#xD;
+        Scene scene = new Scene(rootLayout);&#xD;
+        primaryStage.setScene(scene);&#xD;
+        // Give the controller access to the main app.&#xD;
+        RootLayoutController controller = loader.getController();&#xD;
+        controller.setMainApp(this);&#xD;
+        primaryStage.show();&#xD;
+    } catch (IOException e) {&#xD;
+        e.printStackTrace();&#xD;
+    }&#xD;
+    // Try to load last opened person file.&#xD;
+    File file = getPersonFilePath();&#xD;
+    if (file != null) {&#xD;
+        loadPersonDataFromFile(file);&#xD;
+    }&#xD;
+</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etbNQR0yEeuTQqbBDnX75g" name="showPersonOverview" specification="_etbNQB0yEeuTQqbBDnX75g">
+            <language>JAVA</language>
+            <body>&#xD;
+    try {&#xD;
+        // Load person overview.&#xD;
+        FXMLLoader loader = new FXMLLoader();&#xD;
+        loader.setLocation(MainApp.class.getResource(&quot;/address/view/PersonOverview.fxml&quot;));&#xD;
+        AnchorPane personOverview = (AnchorPane) loader.load();&#xD;
+        // Set person overview into the center of root layout.&#xD;
+        rootLayout.setCenter(personOverview);&#xD;
+        // Give the controller access to the main app.&#xD;
+        PersonOverviewController controller = loader.getController();&#xD;
+        controller.setMainApp(this);&#xD;
+    } catch (IOException e) {&#xD;
+        e.printStackTrace();&#xD;
+    }&#xD;
+</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_eteQkB0yEeuTQqbBDnX75g" name="showPersonEditDialog" specification="_etcbYB0yEeuTQqbBDnX75g">
+            <language>JAVA</language>
+            <body>&#xD;
+    try {&#xD;
+        // Load the fxml file and create a new stage for the popup dialog.&#xD;
+        FXMLLoader loader = new FXMLLoader();&#xD;
+        loader.setLocation(MainApp.class.getResource(&quot;view/PersonEditDialog.fxml&quot;));&#xD;
+        AnchorPane page = (AnchorPane) loader.load();&#xD;
+        // Create the dialog Stage.&#xD;
+        Stage dialogStage = new Stage();&#xD;
+        dialogStage.setTitle(&quot;Edit Person&quot;);&#xD;
+        dialogStage.initModality(Modality.WINDOW_MODAL);&#xD;
+        dialogStage.initOwner(primaryStage);&#xD;
+        Scene scene = new Scene(page);&#xD;
+        dialogStage.setScene(scene);&#xD;
+        // Set the person into the controller.&#xD;
+        PersonEditDialogController controller = loader.getController();&#xD;
+        controller.setDialogStage(dialogStage);&#xD;
+        controller.setPerson(person);&#xD;
+        // Show the dialog and wait until the user closes it&#xD;
+        dialogStage.showAndWait();&#xD;
+        return controller.isOkClicked();&#xD;
+    } catch (IOException e) {&#xD;
+        e.printStackTrace();&#xD;
+        return false;&#xD;
+    }&#xD;
+</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etfesB0yEeuTQqbBDnX75g" name="getPrimaryStage" specification="_ete3oB0yEeuTQqbBDnX75g">
+            <language>JAVA</language>
+            <body>&#xD;
+    return primaryStage;&#xD;
+</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ethT4B0yEeuTQqbBDnX75g" name="getPersonFilePath" specification="_etgFwB0yEeuTQqbBDnX75g">
+            <language>JAVA</language>
+            <body>&#xD;
+    Preferences prefs = Preferences.userNodeForPackage(MainApp.class);&#xD;
+    String filePath = prefs.get(&quot;filePath&quot;, null);&#xD;
+    if (filePath != null) {&#xD;
+        return new File(filePath);&#xD;
+    } else {&#xD;
+        return null;&#xD;
+    }&#xD;
+</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etjJER0yEeuTQqbBDnX75g" name="setPersonFilePath" specification="_eth68B0yEeuTQqbBDnX75g">
+            <language>JAVA</language>
+            <body>&#xD;
+    Preferences prefs = Preferences.userNodeForPackage(MainApp.class);&#xD;
+    if (file != null) {&#xD;
+        prefs.put(&quot;filePath&quot;, file.getPath());&#xD;
+        // Update the stage title.&#xD;
+        primaryStage.setTitle(&quot;AddressApp - &quot; + file.getName());&#xD;
+    } else {&#xD;
+        prefs.remove(&quot;filePath&quot;);&#xD;
+        // Update the stage title.&#xD;
+        primaryStage.setTitle(&quot;AddressApp&quot;);&#xD;
+    }&#xD;
+</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etllUB0yEeuTQqbBDnX75g" name="loadPersonDataFromFile" specification="_etkXMB0yEeuTQqbBDnX75g">
+            <language>JAVA</language>
+            <body>&#xD;
+    try {&#xD;
+        JAXBContext context = JAXBContext.newInstance(PersonListWrapper.class);&#xD;
+        Unmarshaller um = context.createUnmarshaller();&#xD;
+        // Reading XML from the file and unmarshalling.&#xD;
+        PersonListWrapper wrapper = (PersonListWrapper) um.unmarshal(file);&#xD;
+        personData.clear();&#xD;
+        personData.addAll(wrapper.getPersons());&#xD;
+        // Save the file path to the registry.&#xD;
+        setPersonFilePath(file);&#xD;
+    } catch (// catches ANY exception&#xD;
+    Exception // catches ANY exception&#xD;
+    e) {&#xD;
+        Alert dialogo = new Alert(AlertType.ERROR);&#xD;
+        dialogo.setTitle(&quot;Error&quot;);&#xD;
+        dialogo.setHeaderText(&quot;Could not save data to file:\\n&quot; + file.getPath());&#xD;
+        dialogo.showAndWait();&#xD;
+    }&#xD;
+</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etnagB0yEeuTQqbBDnX75g" name="savePersonDataToFile" specification="_etmMYB0yEeuTQqbBDnX75g">
+            <language>JAVA</language>
+            <body>&#xD;
+    try {&#xD;
+        JAXBContext context = JAXBContext.newInstance(PersonListWrapper.class);&#xD;
+        Marshaller m = context.createMarshaller();&#xD;
+        m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);&#xD;
+        // Wrapping our person data.&#xD;
+        PersonListWrapper wrapper = new PersonListWrapper();&#xD;
+        wrapper.setPersons(personData);&#xD;
+        // Marshalling and saving XML to the file.&#xD;
+        m.marshal(wrapper, file);&#xD;
+        // Save the file path to the registry.&#xD;
+        setPersonFilePath(file);&#xD;
+    } catch (// catches ANY exception&#xD;
+    Exception // catches ANY exception&#xD;
+    e) {&#xD;
+        Alert dialogo = new Alert(AlertType.ERROR);&#xD;
+        dialogo.setTitle(&quot;Error&quot;);&#xD;
+        dialogo.setHeaderText(&quot;Could not save data to file:\\n&quot; + file.getPath());&#xD;
+        dialogo.showAndWait();&#xD;
+    }&#xD;
+</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etoooB0yEeuTQqbBDnX75g" name="showBirthdayStatistics" specification="_etoBkB0yEeuTQqbBDnX75g">
+            <language>JAVA</language>
+            <body>&#xD;
+    try {&#xD;
+        // Load the fxml file and create a new stage for the popup.&#xD;
+        FXMLLoader loader = new FXMLLoader();&#xD;
+        loader.setLocation(MainApp.class.getResource(&quot;view/BirthdayStatistics.fxml&quot;));&#xD;
+        AnchorPane page = (AnchorPane) loader.load();&#xD;
+        Stage dialogStage = new Stage();&#xD;
+        dialogStage.setTitle(&quot;Birthday Statistics&quot;);&#xD;
+        dialogStage.initModality(Modality.WINDOW_MODAL);&#xD;
+        dialogStage.initOwner(primaryStage);&#xD;
+        Scene scene = new Scene(page);&#xD;
+        dialogStage.setScene(scene);&#xD;
+        // Set the persons into the controller.&#xD;
+        BirthdayStatisticsController controller = loader.getController();&#xD;
+        controller.setPersonData(personData);&#xD;
+        dialogStage.show();&#xD;
+    } catch (IOException e) {&#xD;
+        e.printStackTrace();&#xD;
+    }&#xD;
+</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etp2wB0yEeuTQqbBDnX75g" name="isBdConnetionStatus" specification="_etpPsB0yEeuTQqbBDnX75g">
+            <language>JAVA</language>
+            <body>&#xD;
+    return bdConnetionStatus;&#xD;
+</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etrE4B0yEeuTQqbBDnX75g" name="setBdConnetionStatus" specification="_etqd0B0yEeuTQqbBDnX75g">
+            <language>JAVA</language>
+            <body>&#xD;
+    this.bdConnetionStatus = bdConnetionStatus;&#xD;
+</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_etuIMR0yEeuTQqbBDnX75g" name="main" specification="_etsTAB0yEeuTQqbBDnX75g">
+            <language>JAVA</language>
+            <body>&#xD;
+    launch(args);&#xD;
+</body>
+          </ownedBehavior>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_etSqYR0yEeuTQqbBDnX75g" name="MainApp" visibility="public" method="_etVtsB0yEeuTQqbBDnX75g"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_etWUwB0yEeuTQqbBDnX75g" name="getPersonData" visibility="public" method="_etW70R0yEeuTQqbBDnX75g">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_etW70B0yEeuTQqbBDnX75g" type="_crkfsB0xEeuoSP3REvyIYQ" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_etYJ8B0yEeuTQqbBDnX75g" name="start" visibility="public" method="_etZYEB0yEeuTQqbBDnX75g">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_etYxAB0yEeuTQqbBDnX75g" name="primaryStage" type="_O2nFkR0yEeuTQqbBDnX75g"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_etZ_IB0yEeuTQqbBDnX75g" name="initRootLayout" visibility="public" method="_etamMB0yEeuTQqbBDnX75g"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_etbNQB0yEeuTQqbBDnX75g" name="showPersonOverview" visibility="public" method="_etbNQR0yEeuTQqbBDnX75g"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_etcbYB0yEeuTQqbBDnX75g" name="showPersonEditDialog" visibility="public" method="_eteQkB0yEeuTQqbBDnX75g">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_etcbYR0yEeuTQqbBDnX75g" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_etdpgB0yEeuTQqbBDnX75g" name="person" type="_O3IC8B0yEeuTQqbBDnX75g"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_ete3oB0yEeuTQqbBDnX75g" name="getPrimaryStage" visibility="public" method="_etfesB0yEeuTQqbBDnX75g">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_ete3oR0yEeuTQqbBDnX75g" type="_O2nFkR0yEeuTQqbBDnX75g" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_etgFwB0yEeuTQqbBDnX75g" name="getPersonFilePath" visibility="public" method="_ethT4B0yEeuTQqbBDnX75g">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_etgs0B0yEeuTQqbBDnX75g" type="_O3SbAB0yEeuTQqbBDnX75g" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_eth68B0yEeuTQqbBDnX75g" name="setPersonFilePath" visibility="public" method="_etjJER0yEeuTQqbBDnX75g">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_etjJEB0yEeuTQqbBDnX75g" name="file" type="_O3SbAB0yEeuTQqbBDnX75g"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_etkXMB0yEeuTQqbBDnX75g" name="loadPersonDataFromFile" visibility="public" method="_etllUB0yEeuTQqbBDnX75g">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_etk-QB0yEeuTQqbBDnX75g" name="file" type="_O3SbAB0yEeuTQqbBDnX75g"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_etmMYB0yEeuTQqbBDnX75g" name="savePersonDataToFile" visibility="public" method="_etnagB0yEeuTQqbBDnX75g">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_etmzcB0yEeuTQqbBDnX75g" name="file" type="_O3SbAB0yEeuTQqbBDnX75g"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_etoBkB0yEeuTQqbBDnX75g" name="showBirthdayStatistics" visibility="public" method="_etoooB0yEeuTQqbBDnX75g"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_etpPsB0yEeuTQqbBDnX75g" name="isBdConnetionStatus" visibility="public" method="_etp2wB0yEeuTQqbBDnX75g">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_etpPsR0yEeuTQqbBDnX75g" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_etqd0B0yEeuTQqbBDnX75g" name="setBdConnetionStatus" visibility="public" method="_etrE4B0yEeuTQqbBDnX75g">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_etqd0R0yEeuTQqbBDnX75g" name="bdConnetionStatus">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_etsTAB0yEeuTQqbBDnX75g" name="main" visibility="public" isStatic="true" method="_etuIMR0yEeuTQqbBDnX75g">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_ets6EB0yEeuTQqbBDnX75g" name="args" type="_aud50B0xEeuoSP3REvyIYQ">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_etthIB0yEeuTQqbBDnX75g"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_etuIMB0yEeuTQqbBDnX75g" value="*"/>
+            </ownedParameter>
+          </ownedOperation>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_YgSLAB0xEeuoSP3REvyIYQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YgTZIB0xEeuoSP3REvyIYQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/PapyrusJava/1#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PapyrusJava_PROFILES/PapyrusJava.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Ygm7IB0xEeuoSP3REvyIYQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YgniMB0xEeuoSP3REvyIYQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/Codegen/1#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://Codegen_PROFILES/Codegen.profile.uml#_fPDsIBa-EearhdjjJ6cVzQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Ygu28B0xEeuoSP3REvyIYQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YgwFEB0xEeuoSP3REvyIYQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Model>
+  <PapyrusJava:External xmi:id="_auV-AB0xEeuoSP3REvyIYQ" name="java.lang.Exception" base_Classifier="_auThwR0xEeuoSP3REvyIYQ"/>
+  <PapyrusJava:External xmi:id="_augWEB0xEeuoSP3REvyIYQ" name="java.lang.String" base_Classifier="_aud50B0xEeuoSP3REvyIYQ"/>
+  <PapyrusJava:External xmi:id="_crhcYB0xEeuoSP3REvyIYQ" name="javafx.beans.property.IntegerProperty" base_Classifier="_creZEB0xEeuoSP3REvyIYQ"/>
+  <PapyrusJava:External xmi:id="_crmU4B0xEeuoSP3REvyIYQ" name="javafx.collections.ObservableList" base_Classifier="_crkfsB0xEeuoSP3REvyIYQ"/>
+  <PapyrusJava:External xmi:id="_dZ3wIB0xEeuoSP3REvyIYQ" name="javafx.beans.property.StringProperty" base_Classifier="_dZ168B0xEeuoSP3REvyIYQ"/>
+  <PapyrusJava:External xmi:id="_daA6EB0xEeuoSP3REvyIYQ" name="javafx.beans.property.ObjectProperty" base_Classifier="_dZ_E4B0xEeuoSP3REvyIYQ"/>
+  <PapyrusJava:External xmi:id="_daJc8B0xEeuoSP3REvyIYQ" name="java.time.LocalDate" base_Classifier="_daIO0B0xEeuoSP3REvyIYQ"/>
+  <PapyrusJava:External xmi:id="_eLO7oB0xEeuoSP3REvyIYQ" name="java.sql.Connection" base_Classifier="_eLNGcR0xEeuoSP3REvyIYQ"/>
+  <PapyrusJava:External xmi:id="_O2i0IB0yEeuTQqbBDnX75g" name="javafx.application.Application" base_Classifier="_O2fw0B0yEeuTQqbBDnX75g"/>
+  <PapyrusJava:External xmi:id="_O2ph0B0yEeuTQqbBDnX75g" name="javafx.stage.Stage" base_Classifier="_O2nFkR0yEeuTQqbBDnX75g"/>
+  <PapyrusJava:External xmi:id="_O2wPgB0yEeuTQqbBDnX75g" name="javafx.scene.layout.BorderPane" base_Classifier="_O2tzQB0yEeuTQqbBDnX75g"/>
+  <PapyrusJava:External xmi:id="_O3J4IB0yEeuTQqbBDnX75g" name="address.model.AgendaVO" base_Classifier="_O3IC8B0yEeuTQqbBDnX75g"/>
+  <PapyrusJava:External xmi:id="_O3UQMB0yEeuTQqbBDnX75g" name="java.io.File" base_Classifier="_O3SbAB0yEeuTQqbBDnX75g"/>
+  <standard:Create xmi:id="_etUfkB0yEeuTQqbBDnX75g" base_BehavioralFeature="_etSqYR0yEeuTQqbBDnX75g"/>
+</xmi:XMI>

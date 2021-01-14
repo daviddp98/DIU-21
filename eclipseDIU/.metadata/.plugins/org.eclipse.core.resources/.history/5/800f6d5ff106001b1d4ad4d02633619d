@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="botonPulsado">
+	<children>
+		<Button fx:id="btnPulsar" layoutX="250.0" layoutY="264.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="82.0" text="Pulsar" />
+		<ProgressBar fx:id="barProg" layoutX="191.0" layoutY="182.0" prefWidth="200.0" progress="0.0" />
+		<Label fx:id="porcentaje" layoutX="415.0" layoutY="183.0" />
+	</children>
+</Pane>

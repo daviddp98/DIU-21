@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="/Agenda/src/address/address.uml:DISPLAY_MODEL" value="false"/>
+	<item key="/Agenda/src/address/address.uml:DISPLAY_PACKAGES" value="false"/>
+	<item key="/Agenda/src/address/address.uml:DISPLAY_CU" value="false"/>
+	<item key="/Agenda/src/address/address.umlAgenda:projectName" value="src"/>
+	<item key="/Agenda/src/address/address.umlAgenda:selectedParserIndex" value="0"/>
+	<item key="/Agenda/src/address/DiagramaClases.uml:DISPLAY_MODEL" value="true"/>
+	<item key="/Agenda/src/address/DiagramaClases.uml:DISPLAY_PACKAGES" value="true"/>
+	<item key="/Agenda/src/address/DiagramaClases.uml:DISPLAY_CU" value="true"/>
+	<item key="/Agenda/src/address/DiagramaClases.umlAgenda:projectName" value="Agenda"/>
+	<item key="/Agenda/src/address/DiagramaClases.umlAgenda:selectedParserIndex" value="0"/>
+	<list key="/Agenda/src/address/address.umlAgenda:searchpaths">
+		<item value="java"/>
+		<item value="*"/>
+		<item value="osgi.*"/>
+		<item value="datatype"/>
+		<item value="generated"/>
+	</list>
+	<list key="/Agenda/src/address/address.umlAgenda:creationpaths">
+		<item value="java.* ; ; java"/>
+		<item value="org.eclipse.papyrus.* ; ; *"/>
+		<item value="org.eclipse.* ; org.eclipse.papyrus.* ; *"/>
+		<item value=" org.osgi.* ; ; osgi.*"/>
+		<item value=" datatype.* ; ; datatype"/>
+	</list>
+	<list key="/Agenda/src/address/DiagramaClases.umlAgenda:searchpaths">
+		<item value="java"/>
+		<item value="*"/>
+		<item value="osgi.*"/>
+		<item value="datatype"/>
+	</list>
+	<list key="/Agenda/src/address/DiagramaClases.umlAgenda:creationpaths">
+		<item value="java.* ; ; java"/>
+		<item value="org.eclipse.papyrus.* ; ; *"/>
+		<item value="org.eclipse.* ; org.eclipse.papyrus.* ; *"/>
+		<item value=" org.osgi.* ; ; osgi.*"/>
+		<item value=" datatype.* ; ; datatype"/>
+	</list>
+</section>

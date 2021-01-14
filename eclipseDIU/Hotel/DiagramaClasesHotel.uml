@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_S-ORQCkREeuelbGksrz4vA" name="DiagramaClasesHotel">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_S-mrwCkREeuelbGksrz4vA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Package" xmi:id="_b3_HQCkREeuelbGksrz4vA" name="Controlador">
+    <packagedElement xmi:type="uml:Class" xmi:id="_li4fQCkREeuelbGksrz4vA" name="ControladorNuevaReserva"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_pd3HECkREeuelbGksrz4vA" name="ControladorVentanaPrincipal"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_sIVwUCkREeuelbGksrz4vA" name="ControladorVentanaReserva"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_vTZ-ICkREeuelbGksrz4vA" name="RootLayoutController"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_idVDkCkREeuelbGksrz4vA" name="Modelo">
+    <packagedElement xmi:type="uml:Class" xmi:id="_yCjE8CkREeuelbGksrz4vA" name="ClienteVO"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_0Fmh0CkREeuelbGksrz4vA" name="ConexionJDBC"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_24C0QCkREeuelbGksrz4vA" name="DAOJDBC"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_6CXbMCkREeuelbGksrz4vA" name="HotelModelo"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_8H6ycCkREeuelbGksrz4vA" name="ReservaVO"/>
+  </packagedElement>
+</uml:Model>

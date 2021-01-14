@@ -1,0 +1,30 @@
+package address.model;
+
+import java.util.List;
+
+public class AgendaDAOJDBC implements AgendaDAO {
+
+	@Override
+	public List<AgendaVO> cargarListaPersona() throws AgendaException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void guardarPersona(List<AgendaVO> pl) throws AgendaException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void editarPersona(List<AgendaVO> pl) throws AgendaException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void eliminarPersona(List<AgendaVO> pl) throws AgendaException {
+		// TODO Auto-generated method stub
+
+	}
+}

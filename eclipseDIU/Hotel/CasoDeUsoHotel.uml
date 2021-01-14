@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_65neMCkPEeuelbGksrz4vA" name="Hotel">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_6-y5ICkPEeuelbGksrz4vA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Actor" xmi:id="__6HjoCkPEeuelbGksrz4vA" name="Usuario"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_G9I6cCkQEeuelbGksrz4vA" name="VerReservas">
+    <include xmi:type="uml:Include" xmi:id="_FqLBQCkREeuelbGksrz4vA" addition="_-Ke8kCkQEeuelbGksrz4vA"/>
+    <include xmi:type="uml:Include" xmi:id="_GIzeACkREeuelbGksrz4vA" addition="_AavvACkREeuelbGksrz4vA"/>
+    <include xmi:type="uml:Include" xmi:id="_GwTi4CkREeuelbGksrz4vA" addition="_DgNrICkREeuelbGksrz4vA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_OOHNsCkQEeuelbGksrz4vA" name="ModificarDatos"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_PvVI0CkQEeuelbGksrz4vA" name="RealizarReservas"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_SBLPoCkQEeuelbGksrz4vA" memberEnd="_SBTygCkQEeuelbGksrz4vA _SBTygSkQEeuelbGksrz4vA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_SBSkYCkQEeuelbGksrz4vA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_SBSkYSkQEeuelbGksrz4vA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_SBTygCkQEeuelbGksrz4vA" name="verreservas" type="_G9I6cCkQEeuelbGksrz4vA" association="_SBLPoCkQEeuelbGksrz4vA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_SBTygSkQEeuelbGksrz4vA" name="usuario" type="__6HjoCkPEeuelbGksrz4vA" association="_SBLPoCkQEeuelbGksrz4vA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_SmrJYCkQEeuelbGksrz4vA" memberEnd="_SmrwcCkQEeuelbGksrz4vA _SmrwcSkQEeuelbGksrz4vA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_SmrJYSkQEeuelbGksrz4vA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_SmrJYikQEeuelbGksrz4vA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_SmrwcCkQEeuelbGksrz4vA" name="modificardatos" type="_OOHNsCkQEeuelbGksrz4vA" association="_SmrJYCkQEeuelbGksrz4vA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_SmrwcSkQEeuelbGksrz4vA" name="usuario" type="__6HjoCkPEeuelbGksrz4vA" association="_SmrJYCkQEeuelbGksrz4vA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_TD4p0CkQEeuelbGksrz4vA" memberEnd="_TD5Q4ikQEeuelbGksrz4vA _TD5Q4ykQEeuelbGksrz4vA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_TD5Q4CkQEeuelbGksrz4vA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_TD5Q4SkQEeuelbGksrz4vA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_TD5Q4ikQEeuelbGksrz4vA" name="realizarreservas" type="_PvVI0CkQEeuelbGksrz4vA" association="_TD4p0CkQEeuelbGksrz4vA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_TD5Q4ykQEeuelbGksrz4vA" name="usuario" type="__6HjoCkPEeuelbGksrz4vA" association="_TD4p0CkQEeuelbGksrz4vA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_-Ke8kCkQEeuelbGksrz4vA" name="ModificarReserva"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_AavvACkREeuelbGksrz4vA" name="CancelarReserva"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_DgNrICkREeuelbGksrz4vA" name="RealizarNuevaReserva"/>
+</uml:Model>

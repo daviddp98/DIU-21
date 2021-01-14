@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.input.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="370.0" prefWidth="470.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controlador.RootLayoutController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+            <Menu mnemonicParsing="false" text="Web View">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#WebView" text="Abrir web">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="W" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="About">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="A" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>

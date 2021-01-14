@@ -1,0 +1,56 @@
+package address.model;
+
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Clase que implementa la interfaz del tipo DAO.
+ *
+ * @author David Delgado
+ */
+
+public class AgendaDAOJDBC implements AgendaDAO {
+
+	public AgendaDAOJDBC() {
+
+	}
+
+	@Override
+	public List<AgendaVO> cargarListaPersona() throws AgendaException {
+		// TODO Auto-generated method stub
+
+		try {
+			List<AgendaVO> res = new ArrayList<>();
+
+			ConexionJDBC conex = new ConexionJDBC();
+			Statement comando;
+			comando = conex.getConnection().createStatement();
+			ResultSet registro = comando.executeQuery("");
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+		return null;
+	}
+
+	@Override
+	public void guardarPersona(List<AgendaVO> pl) throws AgendaException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void editarPersona(List<AgendaVO> pl) throws AgendaException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void eliminarPersona(List<AgendaVO> pl) throws AgendaException {
+		// TODO Auto-generated method stub
+
+	}
+}

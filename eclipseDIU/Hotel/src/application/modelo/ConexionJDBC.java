@@ -1,0 +1,64 @@
+package application.modelo;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+/**
+ * Desde esta clase haremos la conexión y desconexión con la base de datos
+ *
+ * @author David Delgado
+ * 
+ */
+public class ConexionJDBC {
+
+	/**
+	 * Mediante este método realizaremos la conexión con la BBDD
+	 *
+	 * @return objeto tipo Connection con la conexión
+	 * @throws ClassNotFoundException se lanzará esta excepción cuando el
+	 *                                ClassLoader busque información sobre una clase
+	 *                                y ésta no sea encontrada
+	 */
+	public Connection conectarBD() throws ClassNotFoundException {
+		try {
+			// creamos la conexión
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/bdhotel", "root", "");
+			
+			return conn;
+		} catch (SQLException ex) {
+			// lanzamos mensaje con excepción en caso de error
+			System.out.println("\n--- SQLException capturada ---\n");
+			while (ex != null) {
+				System.out.println("Mensaje:   " + ex.getMessage());
+				System.out.println("SQLState:  " + ex.getSQLState());
+				System.out.println("ErrorCode: " + ex.getErrorCode());
+				ex = ex.getNextException();
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Mediante este método cerraremos la conexión con la BBDD
+	 *
+	 * @param conn variable del tipo Connection con la conexión para ser cerrada
+	 */
+	public void desconectarBD(Connection conn) {
+		try {
+			// cerramos la conexion
+			conn.close();
+		} catch (SQLException ex) {
+			// lanzamos mensaje con excepción en caso de error
+			System.out.println("\n--- SQLException capturada ---\n");
+			while (ex != null) {
+				System.out.println("Mensaje:   " + ex.getMessage());
+				System.out.println("SQLState:  " + ex.getSQLState());
+				System.out.println("ErrorCode: " + ex.getErrorCode());
+				ex = ex.getNextException();
+				System.out.println("");
+			}
+		}
+	}
+}

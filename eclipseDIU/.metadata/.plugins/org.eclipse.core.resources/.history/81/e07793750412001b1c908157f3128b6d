@@ -1,0 +1,43 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package address.model;
+
+import java.sql.SQLException;
+import java.util.Map;
+
+/**
+ *
+ * Interfaz que define el método de alta a la base de datos de un Artículo.
+ * Recibe las columnas de una BD mySQL.
+ *
+ * @author David Delgado
+ */
+public interface AgendaDAO {
+
+    /**
+     *
+     * @return una colección de datos de tipo Map, que contiene las claves de
+     * los deportes y sus nombres.
+     * @throws EncuestasException
+     */
+    public Map<Integer, String> cargaListaDeportes() throws AgendaException;
+
+    /**
+     *
+     * @param contacto rellenado por el usuario.
+     * @return boolean true si se ha introducido el dato correctamente, false si
+     * no es así
+     * @throws AgendaException
+     */
+    public boolean altaEncuesta(AgendaVO encuesta) throws AgendaException;
+
+    /**
+     *
+     * @return @throws AgendaException
+     */
+    public int consultaNEcuestasRealizadas() throws AgendaException;
+}

@@ -1,0 +1,15 @@
+package application.modelo;
+
+import java.sql.Connection;
+
+public class DAOJDBC {
+	private ConexionJDBC conexion = new ConexionJDBC();
+
+	public Connection Conexion() {
+		try {
+			return conexion.conectarBD();
+		} catch (ClassNotFoundException e) {
+			return null;
+		}
+	}
+}

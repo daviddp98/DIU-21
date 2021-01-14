@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="374.0" prefWidth="810.0" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="diu.examen.controlador.ControladorVistaPrincipal">
+   <children>
+      <SplitPane dividerPositions="0.4445910290237467" layoutX="14.0" layoutY="14.0" prefHeight="330.0" prefWidth="758.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="343.0" prefWidth="362.0" styleClass="background">
+               <children>
+                  <TableView fx:id="tablaElementos" layoutX="-3.0" prefHeight="278.0" prefWidth="309.0" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn fx:id="columnaString" prefWidth="75.0" text="Nombre" />
+                      <TableColumn fx:id="columnaFloat" prefWidth="75.0" text="Precio" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <Text fill="WHITE" layoutX="8.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número productos disponibles:" AnchorPane.bottomAnchor="26.98046875" AnchorPane.leftAnchor="8.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Text>
+                  <Label fx:id="labelNProductos" layoutX="300.0" layoutY="278.0" styleClass="label-rojo" text="-" textFill="RED" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="300.0">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font></Label>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="352.0" prefWidth="433.0" styleClass="background">
+               <children>
+                  <Label layoutY="6.0" styleClass="label-header" text="Detalle producto" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="5.0" />
+                  <GridPane layoutX="11.0" layoutY="63.0" prefHeight="120.0" prefWidth="391.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="63.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Nombre" />
+                        <Label text="Descripción" GridPane.rowIndex="1" />
+                        <Label text="Precio" GridPane.rowIndex="2" />
+                        <Label text="Cantidad en stock" GridPane.rowIndex="3" />
+                        <Label fx:id="precioLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="cantidadLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="descripcionLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="nombreLabel" text="Label" GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
+                  <HBox layoutX="14.0" layoutY="263.0" prefHeight="33.0" prefWidth="384.0" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="12.0">
+                     <children>
+                        <Button layoutX="17.0" layoutY="229.0" mnemonicParsing="false" onAction="#manejaNuevoElemento" prefHeight="33.0" prefWidth="108.0" text="Nuevo" />
+                        <Button mnemonicParsing="false" onAction="#manejaEditaElemento" prefHeight="33.0" prefWidth="108.0" text="Editar" />
+                        <Button mnemonicParsing="false" onAction="#manejaBorrarElemento" prefHeight="33.0" prefWidth="108.0" text="Eliminar" />
+                        <Button defaultButton="true" layoutX="183.0" layoutY="229.0" mnemonicParsing="false" onAction="#manejaTotal" prefHeight="33.0" prefWidth="111.0" text="Total" />
+                     </children>
+                  </HBox>
+                  <TextField fx:id="textoUnidades" layoutX="28.0" layoutY="202.0" onMouseClicked="#manejaTextFieldUnidades" prefHeight="37.0" prefWidth="108.0" />
+                  <TextField fx:id="textoTotal" layoutX="236.0" layoutY="202.0" prefHeight="37.0" prefWidth="108.0" />
+                  <Label layoutX="144.0" layoutY="210.0" text="Unidades" textFill="WHITE" />
+                  <Label layoutX="353.0" layoutY="210.0" text="Total" textFill="WHITE" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

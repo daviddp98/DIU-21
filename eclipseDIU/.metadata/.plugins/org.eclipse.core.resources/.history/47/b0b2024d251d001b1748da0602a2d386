@@ -1,0 +1,68 @@
+package address.model;
+
+import java.util.List;
+import java.util.Observable;
+
+import javafx.beans.property.IntegerProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+/**
+ *
+ * Modelo de funcionamiento de la aplicación. Implementa los métodos de las
+ * distintas funciones que realiza la aplicación.
+ *
+ * @author David Delgado
+ */
+
+public class AgendaModelo {
+
+	private final AgendaDAOJDBC daojdbc;
+	private int lastId;
+	private IntegerProperty people_inserted;	
+	ObservableList<AgendaVO> plist = FXCollections.observableArrayList();
+
+	
+	public int getLastId() {
+		return lastId;
+	}
+
+	/**
+	 *
+	 * Constructor del modelo. Inicializa un objeto del tipo AgendaDAOJDBC, a través
+	 * del cual se realiza el acceso a los datos.
+	 *
+	 */
+	public AgendaModelo() {
+		daojdbc = new AgendaDAOJDBC();
+	}
+
+	/**
+	 * @return una colección de datos de tipo List, que contiene las personas.
+	 * @throws AgendaException
+	 */
+	public List<AgendaVO> cargarListaPersona() throws AgendaException {
+
+		return daojdbc.cargarListaPersona();
+	}
+
+	/**
+	 * Método que guarda una persona
+	 * 
+	 * @throws AgendaException
+	 */
+
+	public void guardarPersona(List<AgendaVO> pl) throws AgendaException {
+		this.lastId++;
+		pl.get(0).setId(lastId);
+		daojdbc.guardarPersona(pl);
+		this.people_inserted.set(people_inserted.get() + 1);
+	}
+
+	public void actualizarPersona(List<AgendaVO> pl) throws AgendaException {
+
+	}
+	
+	
+
+}

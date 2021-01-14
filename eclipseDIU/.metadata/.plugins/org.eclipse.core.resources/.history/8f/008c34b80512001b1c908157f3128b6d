@@ -1,0 +1,49 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package address.model;
+
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
+
+/**
+ *
+ * Interfaz que define el método de alta a la base de datos de un Artículo.
+ * Recibe las columnas de una BD mySQL.
+ *
+ * @author David Delgado
+ */
+public interface AgendaDAO {
+
+	/**
+	 *
+	 * @return lista de datos de las personas de la agenda.
+	 * @throws AgendaException
+	 */
+	public List<AgendaVO> cargarListaPersona() throws AgendaException;
+
+	/**
+	 *
+	 * @return guarda una persona.
+	 * @throws AgendaException
+	 */
+	public void guardarPersona(List<AgendaVO> pl) throws AgendaException;
+
+	/**
+	 *
+	 * @return edita una persona.
+	 * @throws AgendaException
+	 */
+	public void editarPersona(List<AgendaVO> pl) throws AgendaException;
+
+	/**
+	 *
+	 * @return elimina una persona.
+	 * @throws AgendaException
+	 */
+	public void eliminarPersona(List<AgendaVO> pl) throws AgendaException;
+}

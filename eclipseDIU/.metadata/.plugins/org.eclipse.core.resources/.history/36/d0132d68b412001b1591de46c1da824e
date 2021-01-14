@@ -1,0 +1,67 @@
+package address.model;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import address.util.DateUtil;
+
+/**
+ * Clase que implementa la interfaz del tipo DAO.
+ *
+ * @author David Delgado
+ */
+
+public class AgendaDAOJDBC implements AgendaDAO {
+
+	public AgendaDAOJDBC() {
+
+	}
+
+	@Override
+	public List<AgendaVO> cargarListaPersona() throws AgendaException {
+		// TODO Auto-generated method stub
+		
+		try {
+			List<AgendaVO> resultado = new ArrayList<>();
+			
+			ConexionJDBC conex = new ConexionJDBC();
+			Statement comando;
+			comando = conex.getConnection().createStatement();
+			ResultSet registro = comando
+					.executeQuery("SELECT id, firstname, lastname, street, postalcode, city, birthday FROM persona;");
+			
+			while (registro.next() == true) {
+				
+				resultado.add(new AgendaVO(registro.getString("firstname"),
+						registro.getString("lastname"), registro.getString("street"), registro.getInt("postalcode"),
+						registro.getString("city"), DateUtil.parse(registro.getString("birthday"))));
+			}
+			return resultado;
+
+		} catch (SQLException ex) {
+			// TODO: handle exception
+			throw new AgendaException("ERROR SQL --> Código: " + ex.getErrorCode() + " Mensaje: " + ex.getMessage());
+		}		
+	}
+
+	@Override
+	public void guardarPersona(List<AgendaVO> pl) throws AgendaException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void editarPersona(List<AgendaVO> pl) throws AgendaException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void eliminarPersona(List<AgendaVO> pl) throws AgendaException {
+		// TODO Auto-generated method stub
+
+	}
+}

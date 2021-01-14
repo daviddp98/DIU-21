@@ -1,0 +1,165 @@
+package application;
+
+import java.io.IOException;
+
+import application.controlador.ControladorVistaNuevo;
+import application.controlador.ControladorVistaPrincipal;
+import application.modelo.ModeloFerreteria;
+import application.modelo.Producto;
+import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
+public class MainApp extends Application {
+
+	private Stage primaryStage;
+	private BorderPane rootLayout;
+	private ObservableList<Producto> listaElementos = FXCollections.observableArrayList();
+	private ModeloFerreteria modelo;
+	private boolean bdConnetionStatus;
+
+	public MainApp() {
+		modelo = new ModeloFerreteria();
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
+
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		this.primaryStage = primaryStage;
+		this.primaryStage.setTitle("Gestor Catalogo");
+
+		initRootLayout();
+		muestraVistaPrincipal();
+	}
+
+	/**
+	 * Inicializa la vista raíz o root layout
+	 */
+	public void initRootLayout() {
+		try {
+			// Load root layout from fxml file.
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(MainApp.class.getResource("vista/RootLayout.fxml")); // Aquí cargo la vista
+			rootLayout = (BorderPane) loader.load();
+
+			// Show the scene containing the root layout.
+			Scene scene = new Scene(rootLayout);
+			primaryStage.setScene(scene);
+
+			// Give the controller access to the main app.
+			RootLayoutController controller = loader.getController();
+			controller.setMainApp(this, modelo);
+
+			primaryStage.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Abre VistaPrincipal
+	 */
+	public void muestraVistaPrincipal() {
+		try {
+			// Load person overview.
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(MainApp.class.getResource("vista/VistaPrincipal.fxml"));
+			AnchorPane personOverview = (AnchorPane) loader.load();
+
+			// Colocamos esta vista en el centro del rootlayout
+			rootLayout.setCenter(personOverview);
+
+			// Le pasamos al controlador de esta vista este supercontrolador
+			ControladorVistaPrincipal controller = loader.getController();
+			controller.setMainApp(this, modelo);
+
+		} catch (IOException ioe) {
+			ioe.printStackTrace();
+		}
+	}
+
+	/**
+	 * 
+	 * Abre VistaNuevo
+	 * 
+	 * @param P Es el producto que se va a crar
+	 * @return Devuelve True si se pulsa OK, sino es False
+	 */
+	public boolean muestraVistaEdicionElemento(Producto p) {
+		try {
+			if (bdConnetionStatus) {
+				// Load the fxml file and create a new stage for the popup dialog.
+				FXMLLoader loader = new FXMLLoader();
+				loader.setLocation(MainApp.class.getResource("vista/VistaNuevo.fxml"));
+				AnchorPane page = (AnchorPane) loader.load();
+
+				// Create the dialog Stage.
+				Stage dialogStage = new Stage();
+				dialogStage.setTitle("Editar Elemento");
+				dialogStage.initModality(Modality.WINDOW_MODAL);
+				dialogStage.initOwner(primaryStage);
+				Scene scene = new Scene(page);
+				dialogStage.setScene(scene);
+
+				// Set the person into the controller.
+				ControladorVistaNuevo controller = loader.getController();
+				controller.setDialogStage(dialogStage);
+				controller.setElementoEditable(p);
+
+				// Show the dialog and wait until the user closes it
+				dialogStage.showAndWait();
+
+				return controller.isOkClicked();
+			}
+
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle("Error en la conexión");
+			alert.setHeaderText("No se ha podido realizar la conexión con la base de datos:");
+			alert.setContentText(
+					"La conexión con la base de datos no se encuentra abierta. Abre la base de datos y vuelva a intentarlo.");
+
+			alert.showAndWait();
+
+			return false;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	/**
+	 * Vuelve al stage principal
+	 * 
+	 * @return
+	 */
+	public Stage getPrimaryStage() {
+		return primaryStage;
+	}
+
+	public ObservableList<Producto> getListaElementos() {
+		return listaElementos;
+	}
+
+	public void setListaElementos(ObservableList<Producto> opl) {
+		this.listaElementos.addAll(opl);
+	}
+
+	public boolean isBdConnetionStatus() {
+		return bdConnetionStatus;
+	}
+
+	public void setBdConnetionStatus(boolean bdConnetionStatus) {
+		this.bdConnetionStatus = bdConnetionStatus;
+	}
+}

@@ -1,0 +1,29 @@
+package address.model;
+
+/**
+ * Implementa el modelo de datos de la persona para transformarlo en un objeto
+ * manejable por Java.
+ *
+ * @author David Delgado
+ */
+
+public class PersonVO {
+	
+	private String firstName;
+	private String lastName;
+	private String street;
+	private int postalCode;
+	private String city;
+	private Object birthday;
+	
+	/**
+    *
+    * @param firstName
+    * @param lastName
+    * @param street
+    * @param postalCode
+    * @param city
+    * @param birthday
+    */
+
+}

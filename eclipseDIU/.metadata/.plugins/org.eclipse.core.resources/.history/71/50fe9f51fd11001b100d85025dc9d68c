@@ -1,0 +1,12 @@
+package address;
+
+/**
+ * Implementa el modelo de datos de la persona para transformarlo en un objeto
+ * manejable por Java.
+ *
+ * @author David Delgado
+ */
+
+public class PersonVO {
+
+}

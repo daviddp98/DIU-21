@@ -1,0 +1,87 @@
+package address.model;
+
+import java.time.LocalDate;
+
+/**
+ * Implementa el modelo de datos de la persona para transformarlo en un objeto
+ * manejable por Java.
+ *
+ * @author David Delgado
+ */
+
+public class AgendaVO {
+
+	private String firstName;
+	private String lastName;
+	private String street;
+	private int postalCode;
+	private String city;
+	private Object birthday;
+
+	/**
+	 *
+	 * @param firstName
+	 * @param lastName
+	 * @param street
+	 * @param postalCode
+	 * @param city
+	 * @param birthday
+	 */
+
+	public AgendaVO(String firstName, String lastName, String street, int postalCode, String city, Object birthday) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.street = street;
+		this.postalCode = postalCode;
+		this.city = city;
+		this.birthday = birthday;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getStreet() {
+		return street;
+	}
+
+	public void setStreet(String street) {
+		this.street = street;
+	}
+
+	public int getPostalCode() {
+		return postalCode;
+	}
+
+	public void setPostalCode(int postalCode) {
+		this.postalCode = postalCode;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public Object getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(Object birthday) {
+		this.birthday = birthday;
+	}
+}

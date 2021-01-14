@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_5sNzQB4UEeuBlMCRkdmJ6g" name="CasoDeUso">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_5tu2MB4UEeuBlMCRkdmJ6g">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_HyiNsB4VEeuBlMCRkdmJ6g" name="Usuario"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_ct_T8B4VEeuBlMCRkdmJ6g" name="cargarListaPersona()"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_fKS-UB4VEeuBlMCRkdmJ6g" name="guardarPersona"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_inNKEB4VEeuBlMCRkdmJ6g" name="actualizarPersona"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_kdNpcB4VEeuBlMCRkdmJ6g" name="eliminarPersona"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_oN4esB4VEeuBlMCRkdmJ6g" memberEnd="_oN5s0R4VEeuBlMCRkdmJ6g _oN6T4B4VEeuBlMCRkdmJ6g">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_oN5FwB4VEeuBlMCRkdmJ6g" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_oN5s0B4VEeuBlMCRkdmJ6g" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_oN5s0R4VEeuBlMCRkdmJ6g" name="cargarlistapersona()" type="_ct_T8B4VEeuBlMCRkdmJ6g" association="_oN4esB4VEeuBlMCRkdmJ6g"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_oN6T4B4VEeuBlMCRkdmJ6g" name="usuario" type="_HyiNsB4VEeuBlMCRkdmJ6g" association="_oN4esB4VEeuBlMCRkdmJ6g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_pC5bIB4VEeuBlMCRkdmJ6g" memberEnd="_pC6CMh4VEeuBlMCRkdmJ6g _pC6CMx4VEeuBlMCRkdmJ6g">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pC6CMB4VEeuBlMCRkdmJ6g" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pC6CMR4VEeuBlMCRkdmJ6g" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_pC6CMh4VEeuBlMCRkdmJ6g" name="guardarpersona" type="_fKS-UB4VEeuBlMCRkdmJ6g" association="_pC5bIB4VEeuBlMCRkdmJ6g"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_pC6CMx4VEeuBlMCRkdmJ6g" name="usuario" type="_HyiNsB4VEeuBlMCRkdmJ6g" association="_pC5bIB4VEeuBlMCRkdmJ6g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_pi5w4B4VEeuBlMCRkdmJ6g" memberEnd="_pi5w4x4VEeuBlMCRkdmJ6g _pi6X8B4VEeuBlMCRkdmJ6g">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pi5w4R4VEeuBlMCRkdmJ6g" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pi5w4h4VEeuBlMCRkdmJ6g" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_pi5w4x4VEeuBlMCRkdmJ6g" name="actualizarpersona" type="_inNKEB4VEeuBlMCRkdmJ6g" association="_pi5w4B4VEeuBlMCRkdmJ6g"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_pi6X8B4VEeuBlMCRkdmJ6g" name="usuario" type="_HyiNsB4VEeuBlMCRkdmJ6g" association="_pi5w4B4VEeuBlMCRkdmJ6g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_qbAdkB4VEeuBlMCRkdmJ6g" memberEnd="_qbAdkx4VEeuBlMCRkdmJ6g _qbAdlB4VEeuBlMCRkdmJ6g">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qbAdkR4VEeuBlMCRkdmJ6g" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qbAdkh4VEeuBlMCRkdmJ6g" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_qbAdkx4VEeuBlMCRkdmJ6g" name="eliminarpersona" type="_kdNpcB4VEeuBlMCRkdmJ6g" association="_qbAdkB4VEeuBlMCRkdmJ6g"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_qbAdlB4VEeuBlMCRkdmJ6g" name="usuario" type="_HyiNsB4VEeuBlMCRkdmJ6g" association="_qbAdkB4VEeuBlMCRkdmJ6g"/>
+  </packagedElement>
+</uml:Model>

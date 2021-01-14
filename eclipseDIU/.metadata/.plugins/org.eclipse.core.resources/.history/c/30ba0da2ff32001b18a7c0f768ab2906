@@ -1,0 +1,78 @@
+package application.modelo;
+
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+public class ModeloFerreteria {
+
+	private final ProductoDAOJDBC daojdbc;
+
+	private int ultimaID; //VARIABLE QUE GUARDA LA ULTIMA ID DE LA BD
+	private IntegerProperty nElementosInsertados; // VARIABLE PARA EL CALCULO DEL NUMERO DE ELEMENTOS AÑADIDOS A LA BD
+
+	public ModeloFerreteria() {
+
+		this.daojdbc = new ProductoDAOJDBC();
+	}
+
+	/*
+	 * TRANSFORMA LA LISTA GENERADA DE LA BD EN UNA LISTA OBSERVABLE
+	 */
+	public ObservableList<Producto> cargarListaElementos() throws ExcepcionMoneda {
+
+		ObservableList<Producto> res = FXCollections.observableArrayList(daojdbc.cargarListaElementos());
+
+		if (!res.isEmpty()) {
+
+			this.ultimaID = res.get(res.size() - 1).getId();
+			this.nElementosInsertados = new SimpleIntegerProperty(res.size());
+
+		} else {
+
+			this.ultimaID = 0;
+			this.nElementosInsertados = new SimpleIntegerProperty(0);
+		}
+
+		return res;
+
+	}
+
+	public void guardarElemento(Producto p) throws ExcepcionMoneda {
+
+		daojdbc.guardarElemento(p);
+		this.ultimaID++;
+		this.nElementosInsertados.set(nElementosInsertados.get() + 1);
+
+	}
+	
+	public void modificarElemento(Producto p) throws ExcepcionMoneda {
+
+		daojdbc.modificarElemento(p);
+
+	}
+	
+	public void borrarElemento(Producto p) throws ExcepcionMoneda {
+
+		daojdbc.borrarElemento(p);
+		this.nElementosInsertados.set(nElementosInsertados.get() - 1);
+
+	}
+
+	public Float calcularTotal(Float unidades, Producto p) {
+
+		return unidades * p.getPrecio();
+
+	}
+
+	public int getUltimaID() {
+		return ultimaID;
+	}
+
+	public IntegerProperty getnElementosInsertados() {
+		return nElementosInsertados;
+	}
+
+}
+

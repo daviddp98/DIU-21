@@ -1,0 +1,30 @@
+package address.model;
+
+/**
+ *
+ * Clase de tipo excepción personalizada para la aplicación.
+ *
+ * @author David Delgado
+ */
+
+public class AgendaException extends Exception {
+
+	/**
+     * Constructor de la excepción. Llama al método "super()" de la clase
+     * Excepción, de la que extiende.
+     */
+    public AgendaException() {
+        super();
+    }
+
+    /**
+     * Constructor de la excepción. Llama al método "super()" de la clase
+     * Excepción, de la que extiende.
+     *
+     * @param ms Mensaje de error personalizado que se le pasa de forma
+     * opcional, para que lo muestre al realizar el "throw".
+     */
+    public AgendaException(String ms) {
+        super(ms);
+    }
+}

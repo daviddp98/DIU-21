@@ -1,0 +1,29 @@
+package application;
+
+import java.io.IOException;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
+
+public class Main extends Application {
+	@Override
+	public void start(Stage stage) throws Exception {
+		try {
+			VBox layout = (VBox) FXMLLoader.load(getClass().getResource("Vista.fxml"));
+
+			stage.setTitle("Actividad %");
+			stage.setScene(new Scene(layout, 150, 209));
+			stage.show();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
+}

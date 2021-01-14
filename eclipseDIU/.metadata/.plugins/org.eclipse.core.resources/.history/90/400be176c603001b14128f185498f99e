@@ -1,0 +1,48 @@
+package application;
+
+import java.awt.Label;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.layout.Pane;
+
+public class Main extends Application {
+	private Button btnPulsar;
+	private Label porcentaje;
+	private ProgressBar barProg;
+	private int num = 0;
+
+	private void botonPulsado() {
+		if (++num == 1) {
+			porcentaje.setText(num + "%");
+		}
+
+	}
+
+	@Override
+	public void start(Stage escenarioPrincipal) {
+		try {
+			Pane raiz = (Pane) FXMLLoader.load(getClass().getResource("Vista.fxml"));
+
+			Scene escena = new Scene(raiz);
+			escenarioPrincipal.setScene(escena);
+			escenarioPrincipal.setTitle("Actividad %");
+			escenarioPrincipal.show();
+
+			btnPulsar.setOnAction(e -> botonPulsado());
+
+			//raiz.getChildren().addAll(btnPulsar, porcentaje, barProg);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
+}

@@ -1,0 +1,261 @@
+package application.controlador;
+
+import application.MainApp;
+import application.modelo.ModeloFerreteria;
+import application.modelo.Producto;
+import application.modelo.ProductoException;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+
+public class ControladorVistaPrincipal {
+	@FXML
+	private TableView<Producto> tablaElementos;
+	@FXML
+	private TableColumn<Producto, String> columnaFloat;
+	@FXML
+	private TableColumn<Producto, String> columnaString;
+	@FXML
+	private Label nombreLabel;
+	@FXML
+	private Label descripcionLabel;
+	@FXML
+	private Label precioLabel;
+	@FXML
+	private Label cantidadLabel;
+	@FXML
+	private TextField textoUnidades;
+	@FXML
+	private TextField textoTotal;
+	@FXML
+	private Label labelNProductos;
+
+	private MainApp mainApp;
+	private ModeloFerreteria modelo;
+
+	public ControladorVistaPrincipal() {
+
+	}
+
+	@FXML
+	private void initialize() {
+		columnaString.setCellValueFactory(cellData -> cellData.getValue().nombreProperty());
+		columnaFloat.setCellValueFactory(
+				cellData -> new SimpleStringProperty(Float.toString(cellData.getValue().precioProperty().get())));
+
+		mostrarDetallesElemento(null);
+
+		tablaElementos.getSelectionModel().selectedItemProperty()
+				.addListener((observable, oldValue, newValue) -> mostrarDetallesElemento(newValue));
+	}
+
+	/**
+	 * Instancia MainApp y ModeloFerreteria
+	 * 
+	 * @param mainApp
+	 * @param pm
+	 * 
+	 */
+	public void setMainApp(MainApp mainApp, ModeloFerreteria m) {
+		this.mainApp = mainApp;
+		this.modelo = m;
+
+		// Add observable list data to the table
+
+		try {
+			mainApp.setListaElementos(modelo.cargarListaElementos());
+			tablaElementos.setItems(mainApp.getListaElementos());
+			mainApp.setBdConnetionStatus(true);
+		} catch (ProductoException e) {
+
+			// Show the error message.
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle(e.getTitle());
+			alert.setHeaderText(e.getHeader());
+			alert.setContentText(e.getMessage());
+
+			alert.showAndWait();
+		}
+	}
+
+	/**
+	 * Rellena los campos pero si es nulo lo deja en blanco.
+	 * 
+	 * 
+	 */
+	private void mostrarDetallesElemento(Producto p) {
+		if (p != null) {
+			// Fill the labels with info from the person object.
+			nombreLabel.setText(p.getNombre());
+			descripcionLabel.setText(p.getDescripcion());
+			precioLabel.setText(Float.toString(p.getPrecio()));
+			cantidadLabel.setText(Integer.toString(p.getCantidad()));
+		} else {
+			nombreLabel.setText("");
+			descripcionLabel.setText("");
+			precioLabel.setText("");
+			cantidadLabel.setText("");
+		}
+	}
+
+	/**
+	 * Botón NUEVO
+	 */
+	@FXML
+	private void botonNuevo() {
+		Producto aux = new Producto();
+		boolean okClicked = mainApp.muestraVistaNuevo(aux);
+
+		if (okClicked) {
+			try {
+				modelo.guardarElemento(aux);
+				tablaElementos.getItems().add(aux);
+
+			} catch (ProductoException e) {
+				Alert alert = new Alert(AlertType.WARNING);
+				alert.setTitle(e.getTitle());
+				alert.setHeaderText(e.getHeader());
+				alert.setContentText(e.getMessage());
+
+				alert.showAndWait();
+			}
+		}
+	}
+
+	/**
+	 * Botón EDITAR
+	 */
+	@FXML
+	private void botonEditar() {
+		Producto elementoSeleccionado = tablaElementos.getSelectionModel().getSelectedItem();
+
+		if (elementoSeleccionado != null) {
+			boolean okClicked = mainApp.muestraVistaNuevo(elementoSeleccionado);
+			if (okClicked)
+				try {
+					modelo.modificarElemento(elementoSeleccionado);
+					mostrarDetallesElemento(elementoSeleccionado);
+
+				} catch (ProductoException e) {
+					// Show the error message.
+					Alert alert = new Alert(AlertType.WARNING);
+					alert.setTitle(e.getTitle());
+					alert.setHeaderText(e.getHeader());
+					alert.setContentText(e.getMessage());
+
+					alert.showAndWait();
+				}
+
+		} else {
+			// Nothing selected.
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle("Error de Selección");
+			alert.setHeaderText("No ha seleccionado un elemento de la lista");
+			alert.setContentText("Debe de seleccionar un elemento de la lista.");
+
+			alert.showAndWait();
+		}
+	}
+
+	/**
+	 * Botón BORRAR
+	 */
+	@FXML
+	private void botonBorrar() {
+		int selectedIndex = tablaElementos.getSelectionModel().getSelectedIndex();
+
+		if (selectedIndex >= 0) {
+			Producto aux = tablaElementos.getSelectionModel().getSelectedItem();
+
+			try {
+				modelo.borrarElemento(aux);
+				tablaElementos.getItems().remove(selectedIndex);
+
+			} catch (ProductoException e) {
+				// Show the error message.
+				Alert alert = new Alert(AlertType.WARNING);
+				alert.setTitle(e.getTitle());
+				alert.setHeaderText(e.getHeader());
+				alert.setContentText(e.getMessage());
+
+				alert.showAndWait();
+			}
+		} else {
+			// Nothing selected.
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle("Error de Selección");
+			alert.setHeaderText("No ha seleccionado un elemento de la lista");
+			alert.setContentText("Debe de seleccionar un elemento de la lista.");
+
+			alert.showAndWait();
+		}
+	}
+
+	/**
+	 * Botón TOTAL
+	 */
+	@FXML
+	private void botonTotal() {
+		Producto elementoSeleccionado = tablaElementos.getSelectionModel().getSelectedItem();
+
+		if (elementoSeleccionado != null) {
+			Float unidades;
+
+			if (textoUnidades.getText() != null && textoUnidades.getText().length() > 0) {
+				if (isInputValid(textoUnidades)) {
+					unidades = Float.valueOf(textoUnidades.getText());
+					textoTotal.setText(Float.toString(modelo.calcularTotal(unidades, elementoSeleccionado)));
+				}
+			}
+
+		} else {
+			// Nothing selected.
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle("Error de Selección");
+			alert.setHeaderText("No ha seleccionado un elemento de la lista");
+			alert.setContentText("Debe de seleccionar un elemento de la lista.");
+
+			alert.showAndWait();
+		}
+	}
+
+	/**
+	 * Conctrolando Erres
+	 * 
+	 * @param t
+	 * 
+	 */
+	private boolean isInputValid(TextField t) {
+		String errorMessage = "";
+
+		if (t.getText() == null || t.getText().length() == 0 || t.getText().equals("")) {
+			errorMessage += "No se ha introducido una cantidad correcta\n";
+		} else {
+			try {
+				Float n = Float.parseFloat(t.getText());
+				if (n < 0f)
+					errorMessage += "La cantidad debe ser mayor a 0\n";
+			} catch (NumberFormatException e) {
+				errorMessage += "No es una cantidad válida\n";
+			}
+		}
+		if (errorMessage.length() == 0) {
+			return true;
+		} else {
+			// Show the error message.
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle("Datos Incorrectos");
+			alert.setHeaderText("Vuelve a introducir datos:");
+			alert.setContentText(errorMessage);
+
+			alert.showAndWait();
+
+			return false;
+		}
+	}
+}
