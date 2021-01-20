@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class TutorialController implements TutorialApi {
@@ -29,12 +28,12 @@ public class TutorialController implements TutorialApi {
     }
 
     @Override
-    public ResponseEntity<Optional<TutorialVO>> getTutorialByID(String id) {
+    public ResponseEntity<List<TutorialDTO>> getTutorialByID(String id) {
         return ResponseEntity.ok(tutorialService.getTutorialByID(id));
     }
 
     @Override
-    public ResponseEntity<List<TutorialVO>> findByPublished() {
+    public ResponseEntity<List<TutorialDTO>> findByPublished() {
         return ResponseEntity.ok(tutorialService.findByPublished(true));
     }
 

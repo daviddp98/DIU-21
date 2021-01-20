@@ -1,10 +1,8 @@
 package com.example.tutoriales.service.impl;
 
-import com.example.tutoriales.model.TutorialVO;
 import com.example.tutoriales.model.dto.TutorialDTO;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface TutorialService {
 
@@ -18,9 +16,9 @@ public interface TutorialService {
 
     List<TutorialDTO> findByTitleContaining(String titulo);
 
-    Optional<TutorialVO> getTutorialByID(String id);
+    List<TutorialDTO> getTutorialByID(String id);
 
-    List<TutorialVO> findByPublished(boolean publicado);
+    List<TutorialDTO> findByPublished(boolean publicado);
 
     boolean deleteAll();
 }

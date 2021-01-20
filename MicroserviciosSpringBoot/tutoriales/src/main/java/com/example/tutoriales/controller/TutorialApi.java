@@ -1,7 +1,6 @@
 package com.example.tutoriales.controller;
 
 import com.example.tutoriales.controller.constant.EndPointUris;
-import com.example.tutoriales.model.TutorialVO;
 import com.example.tutoriales.model.dto.TutorialDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
-import java.util.Optional;
 
 @RequestMapping(EndPointUris.API + EndPointUris.V1 + EndPointUris.TUTORIALS)
 public interface TutorialApi {
@@ -22,22 +20,22 @@ public interface TutorialApi {
     ResponseEntity<List<TutorialDTO>> getAllTutorials();
 
     @GetMapping
-    ResponseEntity<List<TutorialDTO>> findByTitleContaining(@PathVariable final String titulo);
+    ResponseEntity<List<TutorialDTO>> findByTitleContaining(@PathVariable String titulo);
+
+    @GetMapping(EndPointUris.ID)
+    ResponseEntity<List<TutorialDTO>> getTutorialByID(@PathVariable String id);
 
     @GetMapping
-    ResponseEntity<Optional<TutorialVO>> getTutorialByID(@PathVariable final String id);
-
-    @GetMapping
-    ResponseEntity<List<TutorialVO>> findByPublished();
+    ResponseEntity<List<TutorialDTO>> findByPublished();
 
     @PostMapping
-    ResponseEntity<TutorialDTO> create(@RequestBody final TutorialDTO tutorialDTO);
+    ResponseEntity<TutorialDTO> create(@RequestBody TutorialDTO tutorialDTO);
 
     @PutMapping(EndPointUris.ID)
-    ResponseEntity<TutorialDTO> updateTutorial(@PathVariable final String id, @RequestBody final TutorialDTO tutorialDTO);
+    ResponseEntity<TutorialDTO> updateTutorial(@PathVariable String id, @RequestBody TutorialDTO tutorialDTO);
 
     @DeleteMapping(EndPointUris.ID)
-    ResponseEntity<Boolean> deleteTutorial(@PathVariable final String id);
+    ResponseEntity<Boolean> deleteTutorial(@PathVariable String id);
 
     @DeleteMapping
     ResponseEntity<Boolean> deleteAllTutorials();

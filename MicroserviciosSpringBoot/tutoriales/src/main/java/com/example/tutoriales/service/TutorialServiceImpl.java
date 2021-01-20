@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -24,8 +23,7 @@ public class TutorialServiceImpl implements TutorialService {
 
     @Autowired
     private TutorialConverterToVO tutorialConverterToVO;
-
-
+    
     @Override
     public List<TutorialDTO> findAll() {
         return tutorialRepository.findAll()
@@ -65,13 +63,19 @@ public class TutorialServiceImpl implements TutorialService {
     }
 
     @Override
-    public Optional<TutorialVO> getTutorialByID(String id) {
-        return tutorialRepository.findById(id);
+    public List<TutorialDTO> getTutorialByID(String id) {
+        return tutorialRepository.findById(id)
+                .stream()
+                .map(tutorialConverterToDTO::convert)
+                .collect(Collectors.toList());
     }
 
     @Override
-    public List<TutorialVO> findByPublished(boolean publicado) {
-        return tutorialRepository.findByPublished(true);
+    public List<TutorialDTO> findByPublished(boolean publicado) {
+        return tutorialRepository.findByPublished(true)
+                .stream()
+                .map(tutorialConverterToDTO::convert)
+                .collect(Collectors.toList());
     }
 
     @Override
