@@ -10,6 +10,7 @@ import java.util.List;
 
 @Repository
 public interface TutorialRepository extends MongoRepository<TutorialVO, String> {
-    List<TutorialVO> findByTitleContaining(String titulo);
-    List<TutorialVO> findByPublished(boolean publicado);
+   // List<TutorialVO> findByTitleContaining(String titulo);
+    //List<TutorialVO> findByPublished(boolean publicado);
+
 }

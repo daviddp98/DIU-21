@@ -1,11 +1,11 @@
-package com.example.tutoriales.service;
+package com.profile.tutorialesv2.service;
 
-import com.example.tutoriales.model.TutorialVO;
-import com.example.tutoriales.model.dto.TutorialDTO;
-import com.example.tutoriales.repository.TutorialRepository;
-import com.example.tutoriales.service.converter.TutorialConverterToDTO;
-import com.example.tutoriales.service.converter.TutorialConverterToVO;
-import com.example.tutoriales.service.impl.TutorialService;
+import com.profile.tutorialesv2.model.TutorialVO;
+import com.profile.tutorialesv2.model.dto.TutorialDTO;
+import com.profile.tutorialesv2.repository.TutorialRepository;
+import com.profile.tutorialesv2.service.converter.TutorialConverterToDTO;
+import com.profile.tutorialesv2.service.converter.TutorialConverterToVO;
+import com.profile.tutorialesv2.service.impl.TutorialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,7 +39,7 @@ public class TutorialServiceImpl implements TutorialService {
     }
 
     @Override
-    public TutorialDTO update(String id, TutorialDTO tutorial) {
+    public TutorialDTO update(TutorialDTO tutorial) {
         TutorialVO tutorialVO = tutorialConverterToVO.convert(tutorial);
         return tutorialConverterToDTO.convert(tutorialRepository.save(tutorialVO));
     }
@@ -56,23 +56,25 @@ public class TutorialServiceImpl implements TutorialService {
 
     @Override
     public List<TutorialDTO> findByTitleContaining(String titulo) {
-        return null;
-    }
-
-    @Override
-    public List<TutorialDTO> getTutorialByID(String id) {
-        //return tutorialRepository.findById(id);
-        return null;
-    }
-
-    @Override
-    public List<TutorialDTO> findByPublished(boolean publicado) {
-       /* return tutorialRepository.findByPublished(true)
+        return tutorialRepository.findAll()
                 .stream()
                 .map(tutorialConverterToDTO::convert)
-                .collect(Collectors.toList());*/
-        return null;
+                .filter(tutorialDTO -> tutorialDTO.getTitulo().contains(titulo))
+                .collect(Collectors.toList());
+    }
 
+    @Override
+    public TutorialDTO getTutorialByID(String id) {
+        return tutorialConverterToDTO.convert(tutorialRepository.findById(id).get());
+    }
+
+    @Override
+    public List<TutorialDTO> findByPublished() {
+        return tutorialRepository.findAll()
+                .stream()
+                .map(tutorialConverterToDTO::convert)
+                .filter(tutorialDTO -> tutorialDTO.isPublicado())
+                .collect(Collectors.toList());
     }
 
     @Override
