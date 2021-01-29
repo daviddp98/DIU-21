@@ -4,19 +4,26 @@ import com.profile.tutorialesv2.controller.TutorialApi;
 import com.profile.tutorialesv2.model.TutorialVO;
 import com.profile.tutorialesv2.model.dto.TutorialDTO;
 import com.profile.tutorialesv2.repository.TutorialRepository;
+import com.profile.tutorialesv2.service.impl.Notification;
 import com.profile.tutorialesv2.service.impl.TutorialService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.event.EventListener;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 @CrossOrigin
 @RestController
 public class TutorialController implements TutorialApi {
+
+    private final CopyOnWriteArrayList<SseEmitter> emitters = new CopyOnWriteArrayList<>();
 
     @Autowired
     private TutorialService tutorialService;
@@ -44,7 +51,6 @@ public class TutorialController implements TutorialApi {
         return ResponseEntity.ok(tutorialService.findByPublished());
     }
 
-
     @Override
     public ResponseEntity<TutorialDTO> createTutorial(TutorialDTO tutorialDTO) {
         return new ResponseEntity<>(tutorialService.create(tutorialDTO), HttpStatus.CREATED);
@@ -65,5 +71,31 @@ public class TutorialController implements TutorialApi {
     @Override
     public ResponseEntity<Boolean> deleteAllTutorials() {
         return ResponseEntity.ok(tutorialService.deleteAll());
+    }
+
+    @EventListener
+    public void onNotification(Notification notification) {
+        List<SseEmitter> deadEmitters = new ArrayList<>();
+        this.emitters.forEach(emitter -> {
+            try {
+                emitter.send(notification);
+
+            } catch (Exception e) {
+                deadEmitters.add(emitter);
+            }
+        });
+        this.emitters.remove(deadEmitters);
+    }
+
+    public SseEmitter getNewNotification() {
+        SseEmitter emitter = new SseEmitter();
+        this.emitters.add(emitter);
+
+        emitter.onCompletion(() -> this.emitters.remove(emitter));
+        emitter.onTimeout(() -> {
+            emitter.complete();
+            this.emitters.remove(emitter);
+        });
+        return emitter;
     }
 }

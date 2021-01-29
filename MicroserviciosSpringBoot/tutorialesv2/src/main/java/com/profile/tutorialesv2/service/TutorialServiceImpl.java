@@ -5,10 +5,13 @@ import com.profile.tutorialesv2.model.dto.TutorialDTO;
 import com.profile.tutorialesv2.repository.TutorialRepository;
 import com.profile.tutorialesv2.service.converter.TutorialConverterToDTO;
 import com.profile.tutorialesv2.service.converter.TutorialConverterToVO;
+import com.profile.tutorialesv2.service.impl.Notification;
 import com.profile.tutorialesv2.service.impl.TutorialService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,6 +27,12 @@ public class TutorialServiceImpl implements TutorialService {
     @Autowired
     private TutorialConverterToVO tutorialConverterToVO;
 
+    public final ApplicationEventPublisher eventPublisher;
+
+    public TutorialServiceImpl(ApplicationEventPublisher eventPublisher) {
+        this.eventPublisher = eventPublisher;
+    }
+
     @Override
     public List<TutorialDTO> findAll() {
         return tutorialRepository.findAll()
@@ -35,7 +44,13 @@ public class TutorialServiceImpl implements TutorialService {
     @Override
     public TutorialDTO create(TutorialDTO tutorial) {
         TutorialVO tutorialVO = tutorialConverterToVO.convert(tutorial);
-        return tutorialConverterToDTO.convert(tutorialRepository.insert(tutorialVO));
+
+        try {
+            publishJobNotifications();
+            return tutorialConverterToDTO.convert(tutorialRepository.insert(tutorialVO));
+        } catch (Exception e) {
+            return tutorialConverterToDTO.convert(tutorialRepository.insert(tutorialVO));
+        }
     }
 
     @Override
@@ -85,5 +100,16 @@ public class TutorialServiceImpl implements TutorialService {
         } catch (Exception e) {
             return Boolean.FALSE;
         }
+    }
+
+    public void publishJobNotifications() throws InterruptedException {
+        Integer jobId = Notification.getNextJobId();
+        Notification nStarted = new Notification("Job No. " + jobId + " started.", new Date());
+
+        this.eventPublisher.publishEvent(nStarted);
+
+        Thread.sleep(2000);
+        Notification nFinished = new Notification("Job No. " + jobId + " finished.", new Date());
+        this.eventPublisher.publishEvent(nFinished);
     }
 }
