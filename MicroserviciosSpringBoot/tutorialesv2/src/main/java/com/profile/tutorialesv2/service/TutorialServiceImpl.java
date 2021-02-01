@@ -9,6 +9,7 @@ import com.profile.tutorialesv2.service.impl.Notification;
 import com.profile.tutorialesv2.service.impl.TutorialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -102,14 +103,10 @@ public class TutorialServiceImpl implements TutorialService {
         }
     }
 
+    @Scheduled(fixedRate = 4000, initialDelay = 2000)
     public void publishJobNotifications() throws InterruptedException {
-        Integer jobId = Notification.getNextJobId();
-        Notification nStarted = new Notification("Job No. " + jobId + " started.", new Date());
+        Notification notif = new Notification("Han añadido un nuevo tutorial", new Date());
 
-        this.eventPublisher.publishEvent(nStarted);
-
-        Thread.sleep(2000);
-        Notification nFinished = new Notification("Job No. " + jobId + " finished.", new Date());
-        this.eventPublisher.publishEvent(nFinished);
+        this.eventPublisher.publishEvent(notif);
     }
 }
