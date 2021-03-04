@@ -1,0 +1,30 @@
+version: '2'
+networks:
+  mired:
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16
+          gateway: 172.28.0.1
+services:
+  db:
+    image: bitnami/mongodb:latest
+    container_name: mongo_DB
+    networks:
+      mired:
+        ipv4_address: 172.28.0.11
+    ports:
+      - "27017:27017"
+    expose:
+      - 27017
+  app-tutoriales:
+    image: daviddp1998/tutorialesapp:1
+    container_name: app_tutoriales_app
+    networks:
+      mired:
+        ipv4_address: 172.28.0.12
+    expose:
+      - 8080
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
